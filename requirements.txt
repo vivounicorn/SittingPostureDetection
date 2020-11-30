@@ -1,0 +1,8 @@
+torch~=1.7.0
+baidu-aip
+playsound~=1.2.2
+sudo apt-get install python3-gst-1.0
+argparse~=1.4.0
+Pillow~=8.0.0
+opencv-python~=4.4.0.46
+openpifpaf~=0.11.9

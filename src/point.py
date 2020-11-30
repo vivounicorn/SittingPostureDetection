@@ -1,3 +1,5 @@
+# coding:utf-8
+
 import math
 import logging
 
@@ -17,16 +19,18 @@ class Point2D(object):
     def __str__(self):
         return "(%s %.2f, %.2f)" % (self.name, self.X, self.Y)
 
-    def distence(self, p) -> float:
+    def distance(self, p) -> float:
         return math.sqrt((self.X - p.X) ** 2 + (self.Y - p.Y) ** 2)
 
     def cosine_law(self, pt_up, pt_down) -> float:
-        ab = self.distence(pt_up)
-        bc = self.distence(pt_down)
-        ac = pt_up.distence(pt_down)
+        ab = self.distance(pt_up)
+        bc = self.distance(pt_down)
+        ac = pt_up.distance(pt_down)
 
-        logger.debug(str(self),str(pt_up), str(pt_down))
-        if math.fabs(ab) < self.EPS or math.fabs(bc-self.EPS):
+        logger.debug(self.__str__() + pt_up.__str__() + pt_down.__str__())
+        logger.debug("%.2f %.2f %.2f " % (ab, bc, ac))
+        if math.fabs(ab) < self.EPS or math.fabs(bc) < self.EPS:
+            logger.info("%.2f %.2f" % (ab, bc))
             return 0
         else:
             return (ab ** 2 + bc ** 2 - ac ** 2) / (2 * ab * bc)
@@ -34,5 +38,6 @@ class Point2D(object):
     def angle(self, pt_up, pt_down) -> float:
         try:
             return math.acos(self.cosine_law(pt_up, pt_down)) * 180 / math.pi
-        except:
-            pass
+        except ZeroDivisionError:
+            logger.error("zero division error.")
+            return -1

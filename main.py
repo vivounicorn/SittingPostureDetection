@@ -1,3 +1,5 @@
+# coding:utf-8
+
 from src.custom_estimator import CustomFormatter
 from src.posture import Posture
 from openpifpaf import predict
