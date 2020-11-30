@@ -130,13 +130,13 @@ class CustomFormatter:
                 self.cfg.set_shoulder_waist_knee_angle(str(angle1))
                 self.cfg.set_ear_shoulder_waist_angle(str(angle2))
 
-                print(self.camera_calibration(),js)
+                print(self.cfg.camera_calibration_path(),js)
 
                 # with openpifpaf.show.image_canvas(frame) as ax:
                 #     self.keypoint_painter.annotations(ax, prediction)
 
-                # cv2.imwrite(self.camera_calibration() + "/calibration.jpg", processed_image)
-                with open(self.camera_calibration() + "calibration.jpg.prediction.json", 'a+') as f:
+                cv2.imwrite(self.cfg.camera_calibration_path() + "/calibration.jpg", processed_image)
+                with open(self.cfg.camera_calibration_path() + "calibration.jpg.prediction.json", 'a+') as f:
                     f.write(js)
                     f.write('\n')
                 break
