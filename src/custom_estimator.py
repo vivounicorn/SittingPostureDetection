@@ -18,13 +18,6 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
 
-def processor_factory(args):
-    model, _ = network.factory_from_args(args)
-    model = model.to(args.device)
-    processor = decoder.factory_from_args(args, model)
-    return processor, model
-
-
 def cli():
     parser = argparse.ArgumentParser(
         prog='python3 -m openpifpaf.video',
@@ -96,12 +89,18 @@ class CustomFormatter:
 
         self.cfg = Config(cfg_path)
         self.args = cli()
-        self.processor, self.model = processor_factory(self.args)
+        self.processor, self.model = self.processor_factory()
 
         self.is_right = False
 
         self.keypoint_painter = show.KeypointPainter(color_connections=self.args.colored_connections, linewidth=6)
         self.annotation_painter = show.AnnotationPainter(keypoint_painter=self.keypoint_painter)
+
+    def processor_factory(self):
+        model, _ = network.factory_from_args(self.args)
+        model = model.to(self.args.device)
+        processor = decoder.factory_from_args(self.args, model)
+        return processor, model
 
     def camera_calibration(self):
         cap = cv2.VideoCapture(self.args.source)
