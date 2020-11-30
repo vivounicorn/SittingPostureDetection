@@ -18,6 +18,8 @@ class Config(object):
             raise IOError("Can't read section parameters")
         if not self.config.has_section("voice_text"):
             raise IOError("Can't read section voice_text")
+        if not self.config.has_section("file_path"):
+            raise IOError("Can't read section file_path")
 
     def skip_frame(self):
         if self.config.has_option("parameters", 'skip_frame'):
@@ -65,4 +67,9 @@ class Config(object):
     def voice_encourage(self):
         if self.config.has_option("voice_text", 'voice_encourage'):
             return self.config.get("voice_text", 'voice_encourage')
+        return ''
+
+    def calibration_path(self):
+        if self.config.has_option("file_path", 'calibration_path'):
+            return self.config.get("file_path", 'calibration_path')
         return ''

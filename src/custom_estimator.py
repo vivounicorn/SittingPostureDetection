@@ -11,6 +11,7 @@ import torch
 import cv2
 from src.posture import Posture
 from src.config import Config
+import openpifpaf
 from openpifpaf import decoder, network, show, transforms, visualizer, __version__
 from threading import Thread
 
@@ -114,6 +115,7 @@ class CustomFormatter:
                             "The calibration direction is to the right.",
                             (10, 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5,
                             (0, 255, 0), 2)
+                cv2.imshow("calibration", frame)
 
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 image_pil = PIL.Image.fromarray(frame)
@@ -123,13 +125,20 @@ class CustomFormatter:
                                                   torch.unsqueeze(processed_image, 0),
                                                   device=self.args.device)[0]
                 js = json.dumps(eval(str([ann.json_data() for ann in prediction])))
-                posture = Posture(js)
+                posture = Posture(self.cfg, js)
                 angle1, angle2 = posture.detect_angle(self.is_right)
-                self.cfg.set_shoulder_waist_knee_angle(angle1)
-                self.cfg.set_ear_shoulder_waist_angle(angle2)
+                self.cfg.set_shoulder_waist_knee_angle(str(angle1))
+                self.cfg.set_ear_shoulder_waist_angle(str(angle2))
 
-                # xie peizhiwenjian
-                cv2.imwrite("../data/img/calibration.jpg", frame)
+                print(self.camera_calibration(),js)
+
+                # with openpifpaf.show.image_canvas(frame) as ax:
+                #     self.keypoint_painter.annotations(ax, prediction)
+
+                # cv2.imwrite(self.camera_calibration() + "/calibration.jpg", processed_image)
+                with open(self.camera_calibration() + "calibration.jpg.prediction.json", 'a+') as f:
+                    f.write(js)
+                    f.write('\n')
                 break
 
         cap.release()
