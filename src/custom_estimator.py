@@ -109,15 +109,11 @@ class CustomFormatter:
         while True:
             ret, frame = cap.read()
             cv2.imshow("calibration", frame)
-            if cv2.waitKey(1) & 0xFF == ord('r'):
+            key = cv2.waitKey(1) & 0xFF
+            if key == ord('r'):
                 self.is_right = True
-                cv2.putText(frame,
-                            "The calibration direction is to the right.",
-                            (10, 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5,
-                            (0, 255, 0), 2)
-                cv2.imshow("calibration", frame)
-
-            if cv2.waitKey(1) & 0xFF == ord('q'):
+                logger.info("The calibration direction is to the right.")
+            elif key == ord('s'):
                 image_pil = PIL.Image.fromarray(frame)
                 processed_image, _, __ = transforms.EVAL_TRANSFORM(image_pil, [], None)
                 CustomFormatter()
@@ -129,16 +125,16 @@ class CustomFormatter:
                 angle1, angle2 = posture.detect_angle(self.is_right)
                 self.cfg.set_shoulder_waist_knee_angle(str(angle1))
                 self.cfg.set_ear_shoulder_waist_angle(str(angle2))
+                self.cfg.flush()
 
-                print(self.cfg.camera_calibration_path(),js)
+                with openpifpaf.show.image_canvas(frame) as ax:
+                    self.keypoint_painter.annotations(ax, prediction)
 
-                # with openpifpaf.show.image_canvas(frame) as ax:
-                #     self.keypoint_painter.annotations(ax, prediction)
-
-                cv2.imwrite(self.cfg.camera_calibration_path() + "/calibration.jpg", processed_image)
-                with open(self.cfg.camera_calibration_path() + "calibration.jpg.prediction.json", 'a+') as f:
+                cv2.imwrite(self.cfg.camera_calibration_path() + "/calibration.jpg", frame)
+                with open(self.cfg.camera_calibration_path() + "calibration.jpg.prediction.json", 'w') as f:
                     f.write(js)
                     f.write('\n')
+            elif key == ord('q'):
                 break
 
         cap.release()

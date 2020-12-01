@@ -18,5 +18,6 @@ if __name__ == '__main__':
     # t2.detect(True)
     # tt = TTS()
     # tt.voice('熙熙，坐直腰，伸直脖子，别趴着写字。')
-    e = CustomFormatter()
+    e = CustomFormatter(cfg_path='/home/zhanglei/Gitlab/SittingPostureDetection/config/cfg.ini')
+    e.camera_calibration()
     e.inference()

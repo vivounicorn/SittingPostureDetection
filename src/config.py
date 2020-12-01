@@ -9,11 +9,12 @@ class Config(object):
 
     def __init__(self, file_path):
 
-        self.config = ConfigParser()
+        self.config = ConfigParser(comment_prefixes='/', allow_no_value=True)
         if not os.path.exists(file_path):
             raise IOError("Can't read file(%s)" % file_path)
 
         self.config.read(file_path)
+        self.file_path = file_path
         if not self.config.has_section("parameters"):
             raise IOError("Can't read section parameters")
         if not self.config.has_section("voice_text"):
@@ -42,7 +43,7 @@ class Config(object):
 
     def set_ear_shoulder_waist_angle(self, val):
         if self.config.has_option("parameters", 'ear_shoulder_waist_angle'):
-            return self.config.set("parameters", 'ear_shoulder_waist_angle', val)
+            self.config.set("parameters", 'ear_shoulder_waist_angle', val)
 
     def shoulder_waist_knee_angle_th(self):
         if self.config.has_option("parameters", 'shoulder_waist_knee_angle_th'):
@@ -73,3 +74,7 @@ class Config(object):
         if self.config.has_option("file_path", 'camera_calibration_path'):
             return self.config.get("file_path", 'camera_calibration_path')
         return ''
+
+    def flush(self):
+        with open(self.file_path, "w+") as f:
+            self.config.write(f)
