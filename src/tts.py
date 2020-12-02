@@ -19,7 +19,7 @@ class TTS(object):
 
         self.client = AipSpeech(APP_ID, API_KEY, SECRET_KEY)
 
-    def voice(self, sentenses='熙熙，别磨蹭了，赶紧去做作业。'):
+    def voice(self, sentenses=''):
 
         result = self.client.synthesis(sentenses, 'zh', 1,
                                        {'vol': 5,  # 音量，取值0-15，默认为5中音量
@@ -30,7 +30,6 @@ class TTS(object):
                                         }
                                        )
 
-        # 识别正确返回语音二进制 错误则返回dict
         if not isinstance(result, dict):
             with open(self.in_path + 'tmp.mp3', 'wb') as f:
                 f.write(result)

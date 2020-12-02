@@ -30,7 +30,7 @@ class Point2D(object):
         logger.debug(self.__str__() + pt_up.__str__() + pt_down.__str__())
         logger.debug("%.2f %.2f %.2f " % (ab, bc, ac))
         if math.fabs(ab) < self.EPS or math.fabs(bc) < self.EPS:
-            logger.info("%.2f %.2f" % (ab, bc))
+            logger.debug("%.2f %.2f" % (ab, bc))
             return 0
         else:
             return (ab ** 2 + bc ** 2 - ac ** 2) / (2 * ab * bc)

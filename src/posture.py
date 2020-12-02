@@ -41,6 +41,7 @@ logger.setLevel(logging.INFO)
 class Posture(object):
 
     def __init__(self, cfg, jstr: str):
+        self.init_success = False
         self.cfg = cfg
         j = json.loads(jstr)
         if len(j) == 0:
@@ -64,20 +65,25 @@ class Posture(object):
             self.right_knee = Point2D('right_knee', self.keypoints[41], self.keypoints[43], self.keypoints[44])
             self.left_ankle = Point2D('left_ankle', self.keypoints[44], self.keypoints[46], self.keypoints[47])
             self.right_ankle = Point2D('right_ankle', self.keypoints[48], self.keypoints[49], self.keypoints[50])
+            self.init_success = True
 
         self.tts = TTS()
 
     def shoulder_waist_knee_left(self):
-        return self.left_hip.angle(self.left_shoulder, self.left_knee)
+        if self.init_success:
+            return self.left_hip.angle(self.left_shoulder, self.left_knee)
 
     def shoulder_waist_knee_right(self):
-        return self.right_hip.angle(self.right_shoulder, self.right_knee)
+        if self.init_success:
+            return self.right_hip.angle(self.right_shoulder, self.right_knee)
 
     def ear_shoulder_waist_left(self):
-        return self.left_shoulder.angle(self.left_ear, self.left_hip)
+        if self.init_success:
+            return self.left_shoulder.angle(self.left_ear, self.left_hip)
 
     def ear_shoulder_waist_right(self):
-        return self.right_shoulder.angle(self.right_ear, self.right_hip)
+        if self.init_success:
+            return self.right_shoulder.angle(self.right_ear, self.right_hip)
 
     def detect_angle(self, is_right=False):
         if is_right:

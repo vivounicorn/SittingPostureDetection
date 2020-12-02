@@ -3,6 +3,7 @@
 import argparse
 import json
 import logging
+import sys
 import time
 
 import PIL
@@ -14,6 +15,8 @@ from src.config import Config
 import openpifpaf
 from openpifpaf import decoder, network, show, transforms, visualizer, __version__
 from threading import Thread
+import matplotlib.pyplot as plt
+from matplotlib.widgets import Button
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -21,7 +24,6 @@ logger.setLevel(logging.INFO)
 
 def cli():
     parser = argparse.ArgumentParser(
-        prog='python3 -m openpifpaf.video',
         description=__doc__
     )
     parser.add_argument('--version', action='version',
@@ -84,6 +86,16 @@ def cli():
     return args
 
 
+def plt_quit(event):
+    plt.close('all')
+    sys.exit()
+
+
+def on_click(event):
+    if event.dblclick:
+        plt.show()
+
+
 class CustomFormatter:
     def __init__(self,
                  cfg_path='/home/zhanglei/Gitlab/SittingPostureDetection/config/cfg.ini'):
@@ -103,16 +115,25 @@ class CustomFormatter:
         processor = decoder.factory_from_args(self.args, model)
         return processor, model
 
-    def camera_calibration(self):
+    def camera_calibration(self, fdirect=lambda x: "right" if x else "left"):
         cap = cv2.VideoCapture(self.args.source)
         logger.info("camera calibration start: please press key 'q' to capture snapshot.")
+
         while True:
             ret, frame = cap.read()
+            cv2.putText(frame,
+                        "The calibration direction is to the %s." % (fdirect(self.is_right)),
+                        (10, 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5,
+                        (0, 255, 0), 2)
             cv2.imshow("calibration", frame)
+
             key = cv2.waitKey(1) & 0xFF
             if key == ord('r'):
                 self.is_right = True
-                logger.info("The calibration direction is to the right.")
+                logger.debug("The calibration direction is to the right.")
+            if key == ord('l'):
+                self.is_right = False
+                logger.info("The calibration direction is to the left.")
             elif key == ord('s'):
                 image_pil = PIL.Image.fromarray(frame)
                 processed_image, _, __ = transforms.EVAL_TRANSFORM(image_pil, [], None)
@@ -127,7 +148,9 @@ class CustomFormatter:
                 self.cfg.set_ear_shoulder_waist_angle(str(angle2))
                 self.cfg.flush()
 
-                with openpifpaf.show.image_canvas(frame) as ax:
+                with openpifpaf.show.image_canvas(frame,
+                                                  fig_file=self.cfg.camera_calibration_path() + "/calibration_an.jpg",
+                                                  show=False) as ax:
                     self.keypoint_painter.annotations(ax, prediction)
 
                 cv2.imwrite(self.cfg.camera_calibration_path() + "/calibration.jpg", frame)
@@ -150,6 +173,7 @@ class CustomFormatter:
         )
         for frame_i, (ax, ax_second) in enumerate(animation.iter()):
             _, image = capture.read()
+
             if image is None:
                 logger.info('no more images captured')
                 break
@@ -184,25 +208,32 @@ class CustomFormatter:
                                                   torch.unsqueeze(processed_image, 0),
                                                   device=self.args.device)[0]
 
+                self.annotation_painter.annotations(ax, prediction)
+
                 p = Thread(target=self.multi_posture, args=(prediction,))
+                p.setDaemon(True)
                 p.start()
 
-                ax.imshow(image)
-                self.annotation_painter.annotations(ax, prediction, texts=str(1.0 / (time.time() - last_loop)))
+            cv2.putText(image,
+                        'frame %d, loop time = %.3fs, FPS = %.3f' % (frame_i,
+                                                                     time.time() - last_loop,
+                                                                     1.0 / (time.time() - last_loop)),
+                        (10, 20), cv2.FONT_HERSHEY_SIMPLEX, 0.5,
+                        (0, 0, 255), 2)
 
-            ax.imshow(image)
-
-            logger.info('frame %d, loop time = %.3fs, FPS = %.3f',
-                        frame_i,
-                        time.time() - last_loop,
-                        1.0 / (time.time() - last_loop))
             last_loop = time.time()
 
             if self.args.max_frames and frame_i >= self.args.start_frame + self.args.max_frames:
                 break
 
+            plt.rcParams['keymap.quit'] = ''
+            axcut = plt.axes([0.9, 0.0, 0.1, 0.075])
+            bcut = Button(axcut, 'Quit')
+            bcut.on_clicked(plt_quit)
+
+            ax.imshow(image)
+
     def multi_posture(self, prediction):
         js = json.dumps(eval(str([ann.json_data() for ann in prediction])))
         posture = Posture(self.cfg, js)
         posture.detect(self.is_right)
-
