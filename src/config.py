@@ -70,6 +70,11 @@ class Config(object):
             return self.config.get("voice_text", 'voice_encourage')
         return ''
 
+    def voice_no_posture(self):
+        if self.config.has_option("voice_text", 'voice_no_posture'):
+            return self.config.get("voice_text", 'voice_no_posture')
+        return ''
+
     def camera_calibration_path(self):
         if self.config.has_option("file_path", 'camera_calibration_path'):
             return self.config.get("file_path", 'camera_calibration_path')

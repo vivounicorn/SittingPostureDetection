@@ -102,7 +102,7 @@ class Posture(object):
 
     def detect(self, is_right=False):
         if not self.init_success:
-            logger.info("no posture is detected.")
+            self.tts.voice(self.cfg.voice_no_posture())
             return
         angle1, angle2 = self.detect_angle(is_right)
         if math.fabs(self.cfg.shoulder_waist_knee_angle() - angle1) > self.cfg.shoulder_waist_knee_angle_th():
