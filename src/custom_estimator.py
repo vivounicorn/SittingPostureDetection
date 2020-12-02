@@ -145,6 +145,12 @@ class CustomFormatter:
         self.cfg.set_shoulder_waist_knee_angle(str(angle1))
         self.cfg.set_ear_shoulder_waist_angle(str(angle2))
         self.cfg.flush()
+
+        cv2.putText(frame,
+                    "waist angle:%.2f, neck angle:%.2f." % (angle1, angle2),
+                    (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.5,
+                    (0, 0, 255), 2)
+
         with openpifpaf.show.image_canvas(frame,
                                           fig_file=self.cfg.camera_calibration_path() + "/calibration_an.jpg",
                                           show=False) as ax:
@@ -204,6 +210,7 @@ class CustomFormatter:
                 p = Thread(target=self.multi_posture, args=(prediction,))
                 p.setDaemon(True)
                 p.start()
+                p.join()
 
             cv2.putText(image,
                         'frame %d, loop time = %.3fs, FPS = %.3f' % (frame_i,
