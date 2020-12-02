@@ -8,7 +8,7 @@ import os
 
 class Logger(logging.Logger):
 
-    def __init__(self, name: str, logger=None, log_cate='search'):
+    def __init__(self, name: str, logger=None, log_cate='posture'):
 
         super().__init__(name)
         self.logger = logging.getLogger(logger)
@@ -21,7 +21,6 @@ class Logger(logging.Logger):
         self.log_path = file_dir
         self.log_name = self.log_path + "/" + log_cate + "." + self.log_time + '.log'
 
-        # fh = logging.FileHandler(self.log_name, 'a', encoding='utf-8')  # 这个是python3的
         fh = logging.handlers.TimedRotatingFileHandler(self.log_name, 'D', 1, 30)
         fh.suffix = "%Y%m%d-%H%M.log"
         fh.setLevel(logging.INFO)
