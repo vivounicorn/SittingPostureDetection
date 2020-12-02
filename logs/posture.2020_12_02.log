@@ -277,3 +277,21 @@
 [2020-12-02 16:27:30,592] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:22.05
 [2020-12-02 16:27:30,592] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:22.05
 [2020-12-02 16:27:30,592] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:22.05
+[2020-12-02 16:49:28,193] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 16:49:28,193] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 16:49:28,193] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 16:53:45,834] custom_estimator.py->__init__ line:91 [ERROR]The configuration file was not found.
+[2020-12-02 16:53:45,834] custom_estimator.py->__init__ line:91 [ERROR]The configuration file was not found.
+[2020-12-02 16:53:45,834] custom_estimator.py->__init__ line:91 [ERROR]The configuration file was not found.
+[2020-12-02 16:54:27,094] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 16:54:27,094] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 16:54:27,094] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 16:55:37,113] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 16:55:37,113] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 16:55:37,113] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 16:55:39,100] cifcaf.py->__call__ line:119 [INFO]1 annotations: [3]
+[2020-12-02 16:55:39,100] cifcaf.py->__call__ line:119 [INFO]1 annotations: [3]
+[2020-12-02 16:55:39,100] cifcaf.py->__call__ line:119 [INFO]1 annotations: [3]
+[2020-12-02 16:55:39,114] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:90.00
+[2020-12-02 16:55:39,114] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:90.00
+[2020-12-02 16:55:39,114] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:90.00

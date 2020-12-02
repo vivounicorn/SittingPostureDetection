@@ -3,6 +3,7 @@
 import argparse
 import json
 import logging
+import os
 import sys
 import time
 
@@ -83,8 +84,11 @@ def plt_quit(event):
 
 
 class CustomFormatter:
-    def __init__(self,
-                 cfg_path='/home/zhanglei/Gitlab/SittingPostureDetection/config/cfg.ini'):
+    def __init__(self):
+
+        cfg_path = os.getcwd() + '/config/cfg.ini'
+        if not os.path.exists(cfg_path):
+            raise IOError("The configuration file was not found.")
 
         self.cfg = Config(cfg_path)
         self.args = cli()
