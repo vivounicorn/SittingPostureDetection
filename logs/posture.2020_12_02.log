@@ -1,0 +1,279 @@
+[2020-12-02 14:54:58,478] custom_estimator.py->camera_calibration line:100 [INFO]camera calibration start: please press key 'q' to capture snapshot.
+[2020-12-02 14:54:58,478] custom_estimator.py->camera_calibration line:100 [INFO]camera calibration start: please press key 'q' to capture snapshot.
+[2020-12-02 14:54:58,478] custom_estimator.py->camera_calibration line:100 [INFO]camera calibration start: please press key 'q' to capture snapshot.
+[2020-12-02 15:44:49,843] cifcaf.py->__call__ line:119 [INFO]1 annotations: [13]
+[2020-12-02 15:44:49,843] cifcaf.py->__call__ line:119 [INFO]1 annotations: [13]
+[2020-12-02 15:44:49,843] cifcaf.py->__call__ line:119 [INFO]1 annotations: [13]
+[2020-12-02 15:44:49,845] posture.py->detect_angle line:99 [INFO]waist angle:78.13, neck angle:169.82
+[2020-12-02 15:44:49,845] posture.py->detect_angle line:99 [INFO]waist angle:78.13, neck angle:169.82
+[2020-12-02 15:44:49,845] posture.py->detect_angle line:99 [INFO]waist angle:78.13, neck angle:169.82
+[2020-12-02 15:44:50,374] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 15:44:50,374] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 15:44:50,374] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 15:44:52,930] cifcaf.py->__call__ line:119 [INFO]1 annotations: [3]
+[2020-12-02 15:44:52,930] cifcaf.py->__call__ line:119 [INFO]1 annotations: [3]
+[2020-12-02 15:44:52,930] cifcaf.py->__call__ line:119 [INFO]1 annotations: [3]
+[2020-12-02 15:44:52,941] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:90.00
+[2020-12-02 15:44:52,941] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:90.00
+[2020-12-02 15:44:52,941] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:90.00
+[2020-12-02 15:44:57,418] cifcaf.py->__call__ line:119 [INFO]0 annotations: []
+[2020-12-02 15:44:57,418] cifcaf.py->__call__ line:119 [INFO]0 annotations: []
+[2020-12-02 15:44:57,418] cifcaf.py->__call__ line:119 [INFO]0 annotations: []
+[2020-12-02 15:44:57,419] posture.py->__init__ line:47 [INFO][]
+[2020-12-02 15:44:57,419] posture.py->__init__ line:47 [INFO][]
+[2020-12-02 15:44:57,419] posture.py->__init__ line:47 [INFO][]
+[2020-12-02 15:45:01,111] cifcaf.py->__call__ line:119 [INFO]0 annotations: []
+[2020-12-02 15:45:01,111] cifcaf.py->__call__ line:119 [INFO]0 annotations: []
+[2020-12-02 15:45:01,111] cifcaf.py->__call__ line:119 [INFO]0 annotations: []
+[2020-12-02 15:45:01,112] posture.py->__init__ line:47 [INFO][]
+[2020-12-02 15:45:01,112] posture.py->__init__ line:47 [INFO][]
+[2020-12-02 15:45:01,112] posture.py->__init__ line:47 [INFO][]
+[2020-12-02 15:45:05,021] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 15:45:05,021] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 15:45:05,021] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 15:45:05,030] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:37.96
+[2020-12-02 15:45:05,030] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:37.96
+[2020-12-02 15:45:05,030] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:37.96
+[2020-12-02 15:45:08,905] cifcaf.py->__call__ line:119 [INFO]2 annotations: [12, 1]
+[2020-12-02 15:45:08,905] cifcaf.py->__call__ line:119 [INFO]2 annotations: [12, 1]
+[2020-12-02 15:45:08,905] cifcaf.py->__call__ line:119 [INFO]2 annotations: [12, 1]
+[2020-12-02 15:45:08,925] posture.py->detect_angle line:99 [INFO]waist angle:44.24, neck angle:141.89
+[2020-12-02 15:45:08,925] posture.py->detect_angle line:99 [INFO]waist angle:44.24, neck angle:141.89
+[2020-12-02 15:45:08,925] posture.py->detect_angle line:99 [INFO]waist angle:44.24, neck angle:141.89
+[2020-12-02 15:45:12,827] cifcaf.py->__call__ line:119 [INFO]2 annotations: [9, 2]
+[2020-12-02 15:45:12,827] cifcaf.py->__call__ line:119 [INFO]2 annotations: [9, 2]
+[2020-12-02 15:45:12,827] cifcaf.py->__call__ line:119 [INFO]2 annotations: [9, 2]
+[2020-12-02 15:45:12,843] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:61.90
+[2020-12-02 15:45:12,843] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:61.90
+[2020-12-02 15:45:12,843] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:61.90
+[2020-12-02 15:45:17,087] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 15:45:17,087] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 15:45:17,087] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 15:45:17,101] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:38.94
+[2020-12-02 15:45:17,101] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:38.94
+[2020-12-02 15:45:17,101] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:38.94
+[2020-12-02 15:45:21,354] cifcaf.py->__call__ line:119 [INFO]1 annotations: [2]
+[2020-12-02 15:45:21,354] cifcaf.py->__call__ line:119 [INFO]1 annotations: [2]
+[2020-12-02 15:45:21,354] cifcaf.py->__call__ line:119 [INFO]1 annotations: [2]
+[2020-12-02 15:45:21,364] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:90.00
+[2020-12-02 15:45:21,364] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:90.00
+[2020-12-02 15:45:21,364] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:90.00
+[2020-12-02 15:50:38,162] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 15:50:38,162] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 15:50:38,162] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 15:50:40,242] cifcaf.py->__call__ line:119 [INFO]1 annotations: [2]
+[2020-12-02 15:50:40,242] cifcaf.py->__call__ line:119 [INFO]1 annotations: [2]
+[2020-12-02 15:50:40,242] cifcaf.py->__call__ line:119 [INFO]1 annotations: [2]
+[2020-12-02 15:50:40,255] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:90.00
+[2020-12-02 15:50:40,255] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:90.00
+[2020-12-02 15:50:40,255] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:90.00
+[2020-12-02 15:50:43,802] cifcaf.py->__call__ line:119 [INFO]1 annotations: [4]
+[2020-12-02 15:50:43,802] cifcaf.py->__call__ line:119 [INFO]1 annotations: [4]
+[2020-12-02 15:50:43,802] cifcaf.py->__call__ line:119 [INFO]1 annotations: [4]
+[2020-12-02 15:50:43,809] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:90.00
+[2020-12-02 15:50:43,809] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:90.00
+[2020-12-02 15:50:43,809] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:90.00
+[2020-12-02 15:50:47,157] cifcaf.py->__call__ line:119 [INFO]1 annotations: [3]
+[2020-12-02 15:50:47,157] cifcaf.py->__call__ line:119 [INFO]1 annotations: [3]
+[2020-12-02 15:50:47,157] cifcaf.py->__call__ line:119 [INFO]1 annotations: [3]
+[2020-12-02 15:50:47,166] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:90.00
+[2020-12-02 15:50:47,166] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:90.00
+[2020-12-02 15:50:47,166] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:90.00
+[2020-12-02 15:51:11,175] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 15:51:11,175] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 15:51:11,175] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 15:51:13,038] cifcaf.py->__call__ line:119 [INFO]1 annotations: [2]
+[2020-12-02 15:51:13,038] cifcaf.py->__call__ line:119 [INFO]1 annotations: [2]
+[2020-12-02 15:51:13,038] cifcaf.py->__call__ line:119 [INFO]1 annotations: [2]
+[2020-12-02 15:51:13,055] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:90.00
+[2020-12-02 15:51:13,055] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:90.00
+[2020-12-02 15:51:13,055] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:90.00
+[2020-12-02 15:51:24,710] cifcaf.py->__call__ line:119 [INFO]1 annotations: [13]
+[2020-12-02 15:51:24,710] cifcaf.py->__call__ line:119 [INFO]1 annotations: [13]
+[2020-12-02 15:51:24,710] cifcaf.py->__call__ line:119 [INFO]1 annotations: [13]
+[2020-12-02 15:51:24,711] posture.py->detect_angle line:99 [INFO]waist angle:78.13, neck angle:169.82
+[2020-12-02 15:51:24,711] posture.py->detect_angle line:99 [INFO]waist angle:78.13, neck angle:169.82
+[2020-12-02 15:51:24,711] posture.py->detect_angle line:99 [INFO]waist angle:78.13, neck angle:169.82
+[2020-12-02 15:51:25,246] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 15:51:25,246] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 15:51:25,246] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 15:51:27,268] cifcaf.py->__call__ line:119 [INFO]1 annotations: [4]
+[2020-12-02 15:51:27,268] cifcaf.py->__call__ line:119 [INFO]1 annotations: [4]
+[2020-12-02 15:51:27,268] cifcaf.py->__call__ line:119 [INFO]1 annotations: [4]
+[2020-12-02 15:51:27,277] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:90.00
+[2020-12-02 15:51:27,277] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:90.00
+[2020-12-02 15:51:27,277] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:90.00
+[2020-12-02 15:51:31,507] cifcaf.py->__call__ line:119 [INFO]1 annotations: [3]
+[2020-12-02 15:51:31,507] cifcaf.py->__call__ line:119 [INFO]1 annotations: [3]
+[2020-12-02 15:51:31,507] cifcaf.py->__call__ line:119 [INFO]1 annotations: [3]
+[2020-12-02 15:51:31,519] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:90.00
+[2020-12-02 15:51:31,519] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:90.00
+[2020-12-02 15:51:31,519] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:90.00
+[2020-12-02 15:51:34,864] cifcaf.py->__call__ line:119 [INFO]1 annotations: [4]
+[2020-12-02 15:51:34,864] cifcaf.py->__call__ line:119 [INFO]1 annotations: [4]
+[2020-12-02 15:51:34,864] cifcaf.py->__call__ line:119 [INFO]1 annotations: [4]
+[2020-12-02 15:51:34,874] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:90.00
+[2020-12-02 15:51:34,874] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:90.00
+[2020-12-02 15:51:34,874] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:90.00
+[2020-12-02 15:51:46,997] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 15:51:46,997] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 15:51:46,997] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 15:51:48,849] cifcaf.py->__call__ line:119 [INFO]1 annotations: [4]
+[2020-12-02 15:51:48,849] cifcaf.py->__call__ line:119 [INFO]1 annotations: [4]
+[2020-12-02 15:51:48,849] cifcaf.py->__call__ line:119 [INFO]1 annotations: [4]
+[2020-12-02 15:51:48,859] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:90.00
+[2020-12-02 15:51:48,859] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:90.00
+[2020-12-02 15:51:48,859] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:90.00
+[2020-12-02 15:51:52,273] cifcaf.py->__call__ line:119 [INFO]1 annotations: [6]
+[2020-12-02 15:51:52,273] cifcaf.py->__call__ line:119 [INFO]1 annotations: [6]
+[2020-12-02 15:51:52,273] cifcaf.py->__call__ line:119 [INFO]1 annotations: [6]
+[2020-12-02 15:51:52,281] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:18.25
+[2020-12-02 15:51:52,281] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:18.25
+[2020-12-02 15:51:52,281] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:18.25
+[2020-12-02 15:52:17,003] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 15:52:17,003] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 15:52:17,003] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 15:52:18,879] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 15:52:18,879] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 15:52:18,879] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 15:52:18,894] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:13.63
+[2020-12-02 15:52:18,894] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:13.63
+[2020-12-02 15:52:18,894] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:13.63
+[2020-12-02 15:52:49,733] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 15:52:49,733] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 15:52:49,733] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 15:52:51,628] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 15:52:51,628] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 15:52:51,628] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 15:52:51,640] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:17.99
+[2020-12-02 15:52:51,640] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:17.99
+[2020-12-02 15:52:51,640] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:17.99
+[2020-12-02 15:53:15,286] custom_estimator.py->camera_calibration line:106 [INFO]camera calibration start: please press key 'q' to capture snapshot.
+[2020-12-02 15:53:15,286] custom_estimator.py->camera_calibration line:106 [INFO]camera calibration start: please press key 'q' to capture snapshot.
+[2020-12-02 15:53:15,286] custom_estimator.py->camera_calibration line:106 [INFO]camera calibration start: please press key 'q' to capture snapshot.
+[2020-12-02 15:53:24,850] custom_estimator.py->camera_calibration line:122 [INFO]The calibration direction is to the left.
+[2020-12-02 15:53:24,850] custom_estimator.py->camera_calibration line:122 [INFO]The calibration direction is to the left.
+[2020-12-02 15:53:24,850] custom_estimator.py->camera_calibration line:122 [INFO]The calibration direction is to the left.
+[2020-12-02 15:53:26,991] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 15:53:26,991] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 15:53:26,991] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 15:53:26,992] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:13.39
+[2020-12-02 15:53:26,992] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:13.39
+[2020-12-02 15:53:26,992] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:13.39
+[2020-12-02 15:53:29,112] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 15:53:29,112] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 15:53:29,112] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 15:53:31,669] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 15:53:31,669] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 15:53:31,669] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 15:53:31,677] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:13.33
+[2020-12-02 15:53:31,677] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:13.33
+[2020-12-02 15:53:31,677] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:13.33
+[2020-12-02 15:53:35,346] cifcaf.py->__call__ line:119 [INFO]1 annotations: [4]
+[2020-12-02 15:53:35,346] cifcaf.py->__call__ line:119 [INFO]1 annotations: [4]
+[2020-12-02 15:53:35,346] cifcaf.py->__call__ line:119 [INFO]1 annotations: [4]
+[2020-12-02 15:53:35,363] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:90.00
+[2020-12-02 15:53:35,363] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:90.00
+[2020-12-02 15:53:35,363] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:90.00
+[2020-12-02 15:57:17,315] cifcaf.py->__call__ line:119 [INFO]1 annotations: [13]
+[2020-12-02 15:57:17,315] cifcaf.py->__call__ line:119 [INFO]1 annotations: [13]
+[2020-12-02 15:57:17,315] cifcaf.py->__call__ line:119 [INFO]1 annotations: [13]
+[2020-12-02 15:57:17,317] posture.py->detect_angle line:99 [INFO]waist angle:78.13, neck angle:169.82
+[2020-12-02 15:57:17,317] posture.py->detect_angle line:99 [INFO]waist angle:78.13, neck angle:169.82
+[2020-12-02 15:57:17,317] posture.py->detect_angle line:99 [INFO]waist angle:78.13, neck angle:169.82
+[2020-12-02 15:57:17,814] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 15:57:17,814] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 15:57:17,814] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 15:57:19,631] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 15:57:19,631] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 15:57:19,631] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 15:57:19,641] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:17.58
+[2020-12-02 15:57:19,641] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:17.58
+[2020-12-02 15:57:19,641] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:17.58
+[2020-12-02 15:57:22,064] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 15:57:22,064] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 15:57:22,064] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 15:57:22,074] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:14.27
+[2020-12-02 15:57:22,074] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:14.27
+[2020-12-02 15:57:22,074] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:14.27
+[2020-12-02 16:00:14,385] custom_estimator.py->camera_calibration line:106 [INFO]camera calibration start: please press key 'q' to capture snapshot.
+[2020-12-02 16:00:14,385] custom_estimator.py->camera_calibration line:106 [INFO]camera calibration start: please press key 'q' to capture snapshot.
+[2020-12-02 16:00:14,385] custom_estimator.py->camera_calibration line:106 [INFO]camera calibration start: please press key 'q' to capture snapshot.
+[2020-12-02 16:00:16,888] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 16:00:16,888] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 16:00:16,888] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 16:00:18,824] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 16:00:18,824] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 16:00:18,824] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 16:00:18,836] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:18.82
+[2020-12-02 16:00:18,836] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:18.82
+[2020-12-02 16:00:18,836] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:18.82
+[2020-12-02 16:03:59,077] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 16:03:59,077] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 16:03:59,077] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 16:04:01,061] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 16:04:01,061] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 16:04:01,061] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 16:04:01,073] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:15.84
+[2020-12-02 16:04:01,073] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:15.84
+[2020-12-02 16:04:01,073] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:15.84
+[2020-12-02 16:04:04,549] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 16:04:04,549] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 16:04:04,549] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 16:04:04,560] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:19.15
+[2020-12-02 16:04:04,560] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:19.15
+[2020-12-02 16:04:04,560] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:19.15
+[2020-12-02 16:26:29,970] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 16:26:29,970] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 16:26:29,970] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 16:26:31,870] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 16:26:31,870] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 16:26:31,870] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 16:26:31,882] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:13.34
+[2020-12-02 16:26:31,882] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:13.34
+[2020-12-02 16:26:31,882] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:13.34
+[2020-12-02 16:26:35,203] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 16:26:35,203] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 16:26:35,203] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 16:26:35,212] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:15.75
+[2020-12-02 16:26:35,212] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:15.75
+[2020-12-02 16:26:35,212] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:15.75
+[2020-12-02 16:26:38,452] cifcaf.py->__call__ line:119 [INFO]1 annotations: [6]
+[2020-12-02 16:26:38,452] cifcaf.py->__call__ line:119 [INFO]1 annotations: [6]
+[2020-12-02 16:26:38,452] cifcaf.py->__call__ line:119 [INFO]1 annotations: [6]
+[2020-12-02 16:26:38,469] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:0.00
+[2020-12-02 16:26:38,469] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:0.00
+[2020-12-02 16:26:38,469] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:0.00
+[2020-12-02 16:26:41,527] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 16:26:41,527] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 16:26:41,527] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 16:26:41,536] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:15.75
+[2020-12-02 16:26:41,536] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:15.75
+[2020-12-02 16:26:41,536] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:15.75
+[2020-12-02 16:27:02,465] custom_estimator.py->camera_calibration line:106 [INFO]camera calibration start: please press key 'q' to capture snapshot.
+[2020-12-02 16:27:02,465] custom_estimator.py->camera_calibration line:106 [INFO]camera calibration start: please press key 'q' to capture snapshot.
+[2020-12-02 16:27:02,465] custom_estimator.py->camera_calibration line:106 [INFO]camera calibration start: please press key 'q' to capture snapshot.
+[2020-12-02 16:27:06,726] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 16:27:06,726] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 16:27:06,726] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 16:27:08,669] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 16:27:08,669] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 16:27:08,669] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 16:27:08,684] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:18.76
+[2020-12-02 16:27:08,684] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:18.76
+[2020-12-02 16:27:08,684] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:18.76
+[2020-12-02 16:27:25,381] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 16:27:25,381] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 16:27:25,381] animation_frame.py->__init__ line:48 [INFO]video output = None
+[2020-12-02 16:27:27,319] cifcaf.py->__call__ line:119 [INFO]1 annotations: [6]
+[2020-12-02 16:27:27,319] cifcaf.py->__call__ line:119 [INFO]1 annotations: [6]
+[2020-12-02 16:27:27,319] cifcaf.py->__call__ line:119 [INFO]1 annotations: [6]
+[2020-12-02 16:27:27,331] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:8.76
+[2020-12-02 16:27:27,331] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:8.76
+[2020-12-02 16:27:27,331] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:8.76
+[2020-12-02 16:27:30,584] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 16:27:30,584] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 16:27:30,584] cifcaf.py->__call__ line:119 [INFO]1 annotations: [7]
+[2020-12-02 16:27:30,592] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:22.05
+[2020-12-02 16:27:30,592] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:22.05
+[2020-12-02 16:27:30,592] posture.py->detect_angle line:99 [INFO]waist angle:90.00, neck angle:22.05

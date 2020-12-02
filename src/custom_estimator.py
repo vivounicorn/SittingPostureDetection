@@ -24,7 +24,7 @@ logger = Logger(__name__).getLogger()
 
 def cli():
     parser = argparse.ArgumentParser(
-        description=__doc__
+        description=__doc__,
     )
     parser.add_argument('--version', action='version',
                         version='OpenPifPaf {version}'.format(version=__version__))
@@ -37,6 +37,7 @@ def cli():
     parser.add_argument('--source', default='0',
                         help='OpenCV source url. Integer for webcams. Supports rtmp streams.')
     parser.add_argument('--show', default=False, action='store_true')
+    parser.add_argument('-c', '--calibration', default=False, action='store_true')
     parser.add_argument('--disable-cuda', action='store_true',
                         help='disable CUDA')
     group = parser.add_argument_group('logging')
@@ -44,6 +45,11 @@ def cli():
                        help='only show warning messages or above')
     group.add_argument('--debug', default=False, action='store_true',
                        help='print debug messages')
+    parser.add_argument('--image', default='',
+                        help='input images')
+    group.add_argument('-r', '--right', default=False, action='store_true',
+                       help='the calibration direction is right(default is left)')
+
     args = parser.parse_args()
 
     args.debug_images = False
@@ -115,33 +121,42 @@ class CustomFormatter:
                 self.is_right = False
                 logger.info("The calibration direction is to the left.")
             elif key == ord('s'):
-                image_pil = PIL.Image.fromarray(frame)
-                processed_image, _, __ = transforms.EVAL_TRANSFORM(image_pil, [], None)
-                CustomFormatter()
-                prediction = self.processor.batch(self.model,
-                                                  torch.unsqueeze(processed_image, 0),
-                                                  device=self.args.device)[0]
-                js = json.dumps(eval(str([ann.json_data() for ann in prediction])))
-                posture = Posture(self.cfg, js)
-                angle1, angle2 = posture.detect_angle(self.is_right)
-                self.cfg.set_shoulder_waist_knee_angle(str(angle1))
-                self.cfg.set_ear_shoulder_waist_angle(str(angle2))
-                self.cfg.flush()
-
-                with openpifpaf.show.image_canvas(frame,
-                                                  fig_file=self.cfg.camera_calibration_path() + "/calibration_an.jpg",
-                                                  show=False) as ax:
-                    self.keypoint_painter.annotations(ax, prediction)
-
-                cv2.imwrite(self.cfg.camera_calibration_path() + "/calibration.jpg", frame)
-                with open(self.cfg.camera_calibration_path() + "calibration.jpg.prediction.json", 'w') as f:
-                    f.write(js)
-                    f.write('\n')
+                self.calibration(frame)
             elif key == ord('q'):
                 break
 
         cap.release()
         cv2.destroyAllWindows()
+
+    def calibration(self, frame):
+        image_pil = PIL.Image.fromarray(frame)
+        processed_image, _, __ = transforms.EVAL_TRANSFORM(image_pil, [], None)
+        CustomFormatter()
+        prediction = self.processor.batch(self.model,
+                                          torch.unsqueeze(processed_image, 0),
+                                          device=self.args.device)[0]
+        js = json.dumps(eval(str([ann.json_data() for ann in prediction])))
+        posture = Posture(self.cfg, js)
+        angle1, angle2 = posture.detect_angle(self.is_right)
+        self.cfg.set_shoulder_waist_knee_angle(str(angle1))
+        self.cfg.set_ear_shoulder_waist_angle(str(angle2))
+        self.cfg.flush()
+        with openpifpaf.show.image_canvas(frame,
+                                          fig_file=self.cfg.camera_calibration_path() + "/calibration_an.jpg",
+                                          show=False) as ax:
+            self.keypoint_painter.annotations(ax, prediction)
+        cv2.imwrite(self.cfg.camera_calibration_path() + "/calibration.jpg", frame)
+        with open(self.cfg.camera_calibration_path() + "calibration.jpg.prediction.json", 'w') as f:
+            f.write(js)
+            f.write('\n')
+
+    def image_calibration(self):
+        self.is_right = self.args.right
+        img = cv2.imread(self.args.image)
+        if img is None:
+            return
+
+        self.calibration(img)
 
     def inference(self):
         last_loop = time.time()
@@ -207,3 +222,12 @@ class CustomFormatter:
         js = json.dumps(eval(str([ann.json_data() for ann in prediction])))
         posture = Posture(self.cfg, js)
         posture.detect(self.is_right)
+
+    def run(self):
+        if self.args.calibration:
+            if not self.args.image:
+                self.camera_calibration()
+            else:
+                self.image_calibration()
+
+        self.inference()
