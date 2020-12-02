@@ -1,14 +1,13 @@
 # coding:utf-8
 
 import json
-import logging
 import math
 
 from random import choice
 
 from src.point import Point2D
 from src.tts import TTS
-from src.config import Config
+from src.logger import Logger
 
 # [{"keypoints": [203.26, 135.15, 0.51, 204.47, 125.27, 0.51, -6.0, -2.0, 0.0, 242.72, 107.57, 0.46, -6.0, -2.0, 0.0,
 # 319.87, 125.81, 0.42, 282.44, 112.03, 0.28, 237.12, 177.62, 0.86, 220.59, 141.05, 0.29, 183.56, 157.62, 0.4,
@@ -34,8 +33,8 @@ from src.config import Config
 15 left_ankle
 16 right_ankle
 '''
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
+
+logger = Logger(__name__).getLogger()
 
 
 class Posture(object):
@@ -86,6 +85,10 @@ class Posture(object):
             return self.right_shoulder.angle(self.right_ear, self.right_hip)
 
     def detect_angle(self, is_right=False):
+        if not self.init_success:
+            logger.info("no posture is detected.")
+            return
+
         if is_right:
             angle1 = self.shoulder_waist_knee_right()
             angle2 = self.ear_shoulder_waist_right()
@@ -98,6 +101,9 @@ class Posture(object):
         return angle1, angle2
 
     def detect(self, is_right=False):
+        if not self.init_success:
+            logger.info("no posture is detected.")
+            return
         angle1, angle2 = self.detect_angle(is_right)
         if math.fabs(self.cfg.shoulder_waist_knee_angle() - angle1) > self.cfg.shoulder_waist_knee_angle_th():
             self.tts.voice(choice(self.cfg.voice_waist_list()))

@@ -1,10 +1,9 @@
 # coding:utf-8
 
 import math
-import logging
+from src.logger import Logger
 
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
+logger = Logger(__name__).getLogger()
 
 
 class Point2D(object):

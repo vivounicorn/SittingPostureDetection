@@ -12,14 +12,14 @@ import torch
 import cv2
 from src.posture import Posture
 from src.config import Config
+from src.logger import Logger
 import openpifpaf
 from openpifpaf import decoder, network, show, transforms, visualizer, __version__
 from threading import Thread
 import matplotlib.pyplot as plt
 from matplotlib.widgets import Button
 
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
+logger = Logger(__name__).getLogger()
 
 
 def cli():
@@ -36,19 +36,9 @@ def cli():
 
     parser.add_argument('--source', default='0',
                         help='OpenCV source url. Integer for webcams. Supports rtmp streams.')
-    parser.add_argument('--video-fps', default=show.AnimationFrame.video_fps, type=float)
     parser.add_argument('--show', default=False, action='store_true')
-    parser.add_argument('--horizontal-flip', default=False, action='store_true')
-    parser.add_argument('--no-colored-connections',
-                        dest='colored_connections', default=True, action='store_false',
-                        help='do not use colored connections to draw poses')
     parser.add_argument('--disable-cuda', action='store_true',
                         help='disable CUDA')
-    parser.add_argument('--scale', default=1.0, type=float,
-                        help='input image scale factor')
-    parser.add_argument('--start-frame', type=int, default=0)
-    parser.add_argument('--skip-frames', type=int, default=1)
-    parser.add_argument('--max-frames', type=int)
     group = parser.add_argument_group('logging')
     group.add_argument('-q', '--quiet', default=False, action='store_true',
                        help='only show warning messages or above')
@@ -58,26 +48,21 @@ def cli():
 
     args.debug_images = False
 
-    # configure logging
     log_level = logging.INFO
     if args.quiet:
         log_level = logging.WARNING
     if args.debug:
         log_level = logging.DEBUG
-    logging.basicConfig()
-    logging.getLogger('openpifpaf').setLevel(log_level)
+
     logger.setLevel(log_level)
 
     network.configure(args)
     show.configure(args)
     visualizer.configure(args)
-    show.AnimationFrame.video_fps = args.video_fps
 
-    # check whether source should be an int
     if len(args.source) == 1:
         args.source = int(args.source)
 
-    # add args.device
     args.device = torch.device('cpu')
     if not args.disable_cuda and torch.cuda.is_available():
         args.device = torch.device('cuda')
@@ -91,11 +76,6 @@ def plt_quit(event):
     sys.exit()
 
 
-def on_click(event):
-    if event.dblclick:
-        plt.show()
-
-
 class CustomFormatter:
     def __init__(self,
                  cfg_path='/home/zhanglei/Gitlab/SittingPostureDetection/config/cfg.ini'):
@@ -106,7 +86,7 @@ class CustomFormatter:
 
         self.is_right = False
 
-        self.keypoint_painter = show.KeypointPainter(color_connections=self.args.colored_connections, linewidth=6)
+        self.keypoint_painter = show.KeypointPainter(color_connections=True, linewidth=6)
         self.annotation_painter = show.AnnotationPainter(keypoint_painter=self.keypoint_painter)
 
     def processor_factory(self):
@@ -124,8 +104,8 @@ class CustomFormatter:
             cv2.putText(frame,
                         "The calibration direction is to the %s." % (fdirect(self.is_right)),
                         (10, 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5,
-                        (0, 255, 0), 2)
-            cv2.imshow("calibration", frame)
+                        (0, 0, 255), 2)
+            cv2.imshow("Camera Calibration", frame)
 
             key = cv2.waitKey(1) & 0xFF
             if key == ord('r'):
@@ -168,33 +148,24 @@ class CustomFormatter:
         capture = cv2.VideoCapture(self.args.source)
 
         animation = show.AnimationFrame(
+            fig_init_args={'figsize': (5, 5)},
             show=self.args.show,
             second_visual=self.args.debug or self.args.debug_indices,
         )
+
         for frame_i, (ax, ax_second) in enumerate(animation.iter()):
+
             _, image = capture.read()
 
             if image is None:
                 logger.info('no more images captured')
                 break
 
-            if frame_i < self.args.start_frame:
-                animation.skip_frame()
-                continue
-
-            if frame_i % self.args.skip_frames != 0:
-                animation.skip_frame()
-                continue
-
-            if self.args.scale != 1.0:
-                image = cv2.resize(image, None, fx=self.args.scale, fy=self.args.scale)
-                logger.debug('resized image size: %s', image.shape)
             image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-            if self.args.horizontal_flip:
-                image = image[:, ::-1]
 
             if ax is None:
                 ax, ax_second = animation.frame_init(image)
+
             visualizer.BaseVisualizer.image(image)
             visualizer.BaseVisualizer.common_ax = ax_second
 
@@ -204,6 +175,7 @@ class CustomFormatter:
             logger.debug('preprocessing time %.3fs', time.time() - start)
 
             if frame_i % self.cfg.skip_frame() == 0:
+                pass
                 prediction = self.processor.batch(self.model,
                                                   torch.unsqueeze(processed_image, 0),
                                                   device=self.args.device)[0]
@@ -223,14 +195,12 @@ class CustomFormatter:
 
             last_loop = time.time()
 
-            if self.args.max_frames and frame_i >= self.args.start_frame + self.args.max_frames:
-                break
-
             plt.rcParams['keymap.quit'] = ''
-            axcut = plt.axes([0.9, 0.0, 0.1, 0.075])
-            bcut = Button(axcut, 'Quit')
+            # axcut = plt.axes([0.9, 0.0, 0.1, 0.075])
+            bcut = Button(ax, '')
             bcut.on_clicked(plt_quit)
 
+            ax.set_title('Posture Detected', fontdict={'fontsize': 10, 'fontweight': 'medium'})
             ax.imshow(image)
 
     def multi_posture(self, prediction):
