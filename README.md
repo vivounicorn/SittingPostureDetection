@@ -21,15 +21,33 @@
         python main.py --source=0 --show
 
 ## 参数说明
-- c, --calibration:是否执行坐姿标定，标定后得到的参数为后续判定坐姿的依据
-- --image:指定图片做标定
-- -r,--right:指定图片标定时，从左侧标定还是右侧
-- --version:依赖的OpenPifPaf的版本
-- --source:指定使用那个摄像头，0为第一个摄像头，以此类推
-- --show:是否显示摄像头画面
-- --disable-cuda:是否禁用CUDA
-- -q,--quiet:是否只显示警告及以上日志信息
-- --debug:是否显示所有日志信息
+- c, --calibration
+
+    是否执行坐姿标定，标定后得到的参数为后续判定坐姿的依据
+- --image
+
+    指定图片做标定
+- -r,--right
+
+    指定图片标定时，从左侧标定还是右侧
+- --version
+
+    依赖的OpenPifPaf的版本
+- --source
+
+    指定使用那个摄像头，0为第一个摄像头，以此类推
+- --show
+    
+    是否显示摄像头画面
+- --disable-cuda
+
+    是否禁用CUDA
+- -q,--quiet
+
+    是否只显示警告及以上日志信息
+- --debug
+
+    是否显示所有日志信息
 
 ## 依赖说明
 - torch~=1.7.0
@@ -52,8 +70,11 @@
 
 ## 例子
 - 图片标定+检测
-python main.py -c --image=/data/img/baby.png --source=0 --show
+
+        python main.py -c --image=/data/img/baby.png --source=0 --show
 - 摄像头标定+检测
-python main.py -c --source=0 --show
+        
+        python main.py -c --source=0 --show
 - 默认配置+检测
-python main.py --source=0 --show
+
+        python main.py --source=0 --show
