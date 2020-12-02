@@ -87,7 +87,7 @@ class Posture(object):
     def detect_angle(self, is_right=False):
         if not self.init_success:
             logger.info("no posture is detected.")
-            return
+            return -1, -1
 
         if is_right:
             angle1 = self.shoulder_waist_knee_right()
