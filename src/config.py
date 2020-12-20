@@ -80,6 +80,21 @@ class Config(object):
             return self.config.get("file_path", 'camera_calibration_path')
         return ''
 
+    def dictation_words_path(self):
+        if self.config.has_option("file_path", 'dictation_words_path'):
+            return self.config.get("file_path", 'dictation_words_path')
+        return ''
+
+    def dictation_duration(self):
+        if self.config.has_option("parameters", 'dictation_duration'):
+            return self.config.getint("parameters", 'dictation_duration')
+        return ''
+
+    def dictation_frequency(self):
+        if self.config.has_option("parameters", 'dictation_frequency'):
+            return self.config.getint("parameters", 'dictation_frequency')
+        return ''
+
     def flush(self):
         with open(self.file_path, "w+") as f:
             self.config.write(f)

@@ -110,4 +110,5 @@ class Posture(object):
         elif math.fabs(self.cfg.ear_shoulder_waist_angle() - angle2) > self.cfg.ear_shoulder_waist_angle_th():
             self.tts.voice(choice(self.cfg.voice_ear_list()))
         else:
-            self.tts.voice(self.cfg.voice_encourage())
+            pass
+            #self.tts.voice(self.cfg.voice_encourage())
