@@ -1,9 +1,9 @@
 # coding:utf-8
 
 import os, time
-from src.tts import TTS
-from src.logger import Logger
-from src.config import Config
+from src.utils.tts import TTS
+from src.utils.logger import Logger
+from src.utils.config import Config
 
 logger = Logger(__name__).getLogger()
 

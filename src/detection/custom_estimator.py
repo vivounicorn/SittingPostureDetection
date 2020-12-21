@@ -12,8 +12,8 @@ import torch
 
 import cv2
 from src.posture import Posture
-from src.config import Config
-from src.logger import Logger
+from src.utils.config import Config
+from src.utils.logger import Logger
 import openpifpaf
 from openpifpaf import decoder, network, show, transforms, visualizer, __version__
 from threading import Thread

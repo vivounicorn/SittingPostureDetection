@@ -5,9 +5,9 @@ import math
 
 from random import choice
 
-from src.point import Point2D
-from src.tts import TTS
-from src.logger import Logger
+from src.detection.point import Point2D
+from src.utils.tts import TTS
+from src.utils.logger import Logger
 
 # [{"keypoints": [203.26, 135.15, 0.51, 204.47, 125.27, 0.51, -6.0, -2.0, 0.0, 242.72, 107.57, 0.46, -6.0, -2.0, 0.0,
 # 319.87, 125.81, 0.42, 282.44, 112.03, 0.28, 237.12, 177.62, 0.86, 220.59, 141.05, 0.29, 183.56, 157.62, 0.4,

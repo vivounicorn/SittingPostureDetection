@@ -1,7 +1,7 @@
 # coding:utf-8
 
 import math
-from src.logger import Logger
+from src.utils.logger import Logger
 
 logger = Logger(__name__).getLogger()
 
