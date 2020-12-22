@@ -1,6 +1,6 @@
 import numpy as np
 import cv2
-import fhog
+import src.tracking.fhog as fhog
 
 import sys
 
@@ -9,7 +9,9 @@ PY3 = sys.version_info >= (3,)
 if PY3:
     xrange = range
 
-
+'''
+  from project:https://github.com/ryanfwy/KCF-DSST-py
+'''
 # ffttools
 # 离散傅里叶变换、逆变换
 def fftd(img, backwards=False, byRow=False):

@@ -50,6 +50,20 @@ class Config(object):
             return self.config.getint("parameters", 'shoulder_waist_knee_angle_th')
         return 0
 
+    def bbox(self):
+        orgi = (0.0, 0.0, 0.0, 0.0)
+        if self.config.has_option("parameters", 'bbox'):
+            pos = self.config.get("parameters", 'bbox')
+            box = pos.split(',')
+            if len(box) == 4:
+                p = (float(box[0]), float(box[1]), float(box[2]), float(box[3]))
+                return p
+        return orgi
+
+    def set_bbox(self, val):
+        if self.config.has_option("parameters", 'bbox'):
+            self.config.set("parameters", 'bbox', val)
+
     def ear_shoulder_waist_angle_th(self):
         if self.config.has_option("parameters", 'ear_shoulder_waist_angle_th'):
             return self.config.getint("parameters", 'ear_shoulder_waist_angle_th')

@@ -11,9 +11,11 @@ import PIL
 import torch
 
 import cv2
-from src.posture import Posture
+from src.detection.posture import Posture
 from src.utils.config import Config
 from src.utils.logger import Logger
+from src.detection.bounding_box import BoundingBox
+from src.tracking.tracker import *
 import openpifpaf
 from openpifpaf import decoder, network, show, transforms, visualizer, __version__
 from threading import Thread
@@ -102,6 +104,11 @@ class CustomFormatter:
     def processor_factory(self):
         model, _ = network.factory_from_args(self.args)
         model = model.to(self.args.device)
+        if not self.args.disable_cuda and torch.cuda.device_count() > 1:
+            logger.info('Using multiple GPUs: %d', torch.cuda.device_count())
+            model = torch.nn.DataParallel(model)
+            model.base_net = model.base_net
+            model.head_nets = model.head_nets
         processor = decoder.factory_from_args(self.args, model)
         return processor, model
 
@@ -144,6 +151,9 @@ class CustomFormatter:
         angle1, angle2 = posture.detect_angle(self.is_right)
         self.cfg.set_shoulder_waist_knee_angle(str(angle1))
         self.cfg.set_ear_shoulder_waist_angle(str(angle2))
+
+        bbox = BoundingBox(js)
+        self.cfg.set_bbox(str(bbox))
         self.cfg.flush()
 
         cv2.putText(frame,
@@ -171,12 +181,15 @@ class CustomFormatter:
     def inference(self):
         last_loop = time.time()
         capture = cv2.VideoCapture(self.args.source)
+        bbox = self.cfg.bbox()
 
         animation = show.AnimationFrame(
             fig_init_args={'figsize': (5, 5)},
             show=self.args.show,
             second_visual=self.args.debug or self.args.debug_indices,
         )
+
+        tracker = KCFTracker(True, True, True)
 
         for frame_i, (ax, ax_second) in enumerate(animation.iter()):
 
@@ -199,8 +212,13 @@ class CustomFormatter:
             processed_image, _, __ = transforms.EVAL_TRANSFORM(image_pil, [], None)
             logger.debug('preprocessing time %.3fs', time.time() - start)
 
+            if frame_i == 0:
+                tracker.init(bbox, image)
+
+            bbox = tracker.update(image)
+            self.draw_box(ax, bbox[0], bbox[1], bbox[2], bbox[3], "green")
+
             if frame_i % self.cfg.skip_frame() == 0:
-                pass
                 prediction = self.processor.batch(self.model,
                                                   torch.unsqueeze(processed_image, 0),
                                                   device=self.args.device)[0]
@@ -210,7 +228,7 @@ class CustomFormatter:
                 p = Thread(target=self.multi_posture, args=(prediction,))
                 p.setDaemon(True)
                 p.start()
-                p.join()
+                # p.join()
 
             cv2.putText(image,
                         'frame %d, loop time = %.3fs, FPS = %.3f' % (frame_i,
@@ -228,6 +246,18 @@ class CustomFormatter:
 
             ax.set_title('Posture Detected', fontdict={'fontsize': 10, 'fontweight': 'medium'})
             ax.imshow(image)
+
+    def draw_box(self, ax, x, y, w, h, color, linewidth=1):
+        import matplotlib
+        if w < 5.0:
+            x -= 2.0
+            w += 4.0
+        if h < 5.0:
+            y -= 2.0
+            h += 4.0
+        ax.add_patch(
+            matplotlib.patches.Rectangle(
+                (x, y), w, h, fill=False, color=color, linewidth=linewidth))
 
     def multi_posture(self, prediction):
         js = json.dumps(eval(str([ann.json_data() for ann in prediction])))
