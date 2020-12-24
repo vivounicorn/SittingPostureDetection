@@ -9,3 +9,5 @@ openpifpaf~=0.11.9
 matplotlib~=3.3.2
 numpy~=1.18.5
 numba~=0.51.2
+torchreid~=1.3.3
+torchvision~=0.8.1

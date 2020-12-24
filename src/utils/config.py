@@ -109,6 +109,11 @@ class Config(object):
             return self.config.getint("parameters", 'dictation_frequency')
         return ''
 
+    def yolov5s_path(self):
+        if self.config.has_option("file_path", 'yolov5s_path'):
+            return self.config.get("file_path", 'yolov5s_path')
+        return ''
+
     def flush(self):
         with open(self.file_path, "w+") as f:
             self.config.write(f)

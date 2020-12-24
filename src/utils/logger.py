@@ -9,7 +9,6 @@ import os
 class Logger(logging.Logger):
 
     def __init__(self, name: str, logger=None, log_cate='posture'):
-
         super().__init__(name)
         self.logger = logging.getLogger(logger)
         self.logger.setLevel(logging.DEBUG)
